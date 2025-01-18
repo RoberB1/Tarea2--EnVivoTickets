@@ -13,8 +13,8 @@ public class Usuario {
     String nombre;
     String email;
     
-    public void recibirNotificacion(String msg){
-        //codigo
+    public void recibirNotificacion(String msg) {
+        System.out.println(nombre + " ha recibido una notificación: " + msg);
     }
 
     public Usuario(int idUsuario, String nombre, String email) {

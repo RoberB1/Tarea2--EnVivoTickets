@@ -19,17 +19,18 @@ public class Evento {
     List<String> elenco;
     List<Observer> observers;
     
-    public void agregarObservador(Observer obs){
-        //Codigo
+     public void agregarObservador(Observer obs) {
+        observers.add(obs);
     }
-    
-    public void eliminarObservador(Observer obs){
-        //codigo
+
+    public void eliminarObservador(Observer obs) {
+        observers.remove(obs);
     }
-    
-    public void notificarCambios(String msg){
-        //codigo
-       
+
+    public void notificarCambios(String msg) {
+        for (Observer obs : observers) {
+            obs.recibirNotificación(msg);
+        }
     }
     
     public void actualizarEvento(String msg){

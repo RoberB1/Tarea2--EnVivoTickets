@@ -6,13 +6,15 @@ public class Soporte {
     private List<String> incidentes;
     private String equipoEscalado;
 
-    public void registrarIncidente(String incidentes){
-        // cade logic as para registrar el incidente y agregarlo a la lista
+    public void registrarIncidente(String incidente) {
+        incidentes.add(incidente);
+        System.out.println("Incidente registrado: " + incidente);
     }
 
-    public void escalarIncidente(String incidente){
-        // cade logic as para escalar el incidente y asignar el equipo
+    public void escalarIncidente(String incidente) {
+        System.out.println("El incidente '" + incidente + "' ha sido escalado al equipo correspondiente.");
     }
+    
     public String getEquipoEscalado() {
         return equipoEscalado;
     }
@@ -25,5 +27,7 @@ public class Soporte {
     public void setIncidentes(List<String> incidentes) {
         this.incidentes = incidentes;
     }
+    
+    
 
 }
