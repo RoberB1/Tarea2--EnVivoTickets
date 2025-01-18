@@ -71,5 +71,5 @@ public class Ticket {
     public void setSeccion(String Seccion) {
         this.Seccion = Seccion;
     }
- 
+
 }
