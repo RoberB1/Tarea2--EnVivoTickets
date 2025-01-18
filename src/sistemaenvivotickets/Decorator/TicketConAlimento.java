@@ -1,4 +1,4 @@
-package Decorator;
+package sistemaenvivotickets.Decorator;
 import sistemaenvivotickets.Decorator.decoratorTicket;
 import sistemaenvivotickets.Factory.Ticket;
 

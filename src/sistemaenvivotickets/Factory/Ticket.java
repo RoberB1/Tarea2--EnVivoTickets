@@ -72,8 +72,4 @@ public class Ticket {
         this.Seccion = Seccion;
     }
     
-    public void agregarCaracteristica(){
-        System.out.println("caracteristicas agregadas");
-    }
-    
 }
