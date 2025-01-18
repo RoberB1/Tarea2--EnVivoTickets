@@ -71,9 +71,5 @@ public class Ticket {
     public void setSeccion(String Seccion) {
         this.Seccion = Seccion;
     }
-    
-    public void agregarCaracteristica(){
-        System.out.println("caracteristicas agregadas");
-    }
-    
+ 
 }
