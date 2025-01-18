@@ -15,7 +15,6 @@ public class FecadeSystem {
         funcion.mostrarDisponibilidad();
     }
 
-    // Método para reservar un ticket
     public void reservarTicket(Ticket ticket) {
         if (ticket.getEstado().equals("disponible")) {
             ticket.setEstado("reservado");
@@ -25,10 +24,8 @@ public class FecadeSystem {
         }
     }
 
-    // Método para realizar un pago
     public void realizarPago(double monto) {
         System.out.println("Pago realizado exitosamente por el monto de: $" + monto);
-        // Aquí se puede integrar la lógica de procesamiento de pagos
     }
 
     // Getters y Setters
