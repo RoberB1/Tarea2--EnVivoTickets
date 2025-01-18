@@ -21,6 +21,10 @@ public class Ticket {
     public void cancelarReserva(){
         //Codigo
     }
+    
+    public void agregarCaracteristica() {
+        System.out.println("Características básicas del ticket.");
+    }
 
     public Ticket() {
         this.idTicket = 0;
