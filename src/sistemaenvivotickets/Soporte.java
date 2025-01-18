@@ -13,5 +13,17 @@ public class Soporte {
     public void escalarIncidente(String incidente){
         // cade logic as para escalar el incidente y asignar el equipo
     }
+    public String getEquipoEscalado() {
+        return equipoEscalado;
+    }
+    public void setEquipoEscalado(String equipoEscalado) {
+        this.equipoEscalado = equipoEscalado;
+    }
+    public List<String> getIncidentes() {
+        return incidentes;
+    }
+    public void setIncidentes(List<String> incidentes) {
+        this.incidentes = incidentes;
+    }
 
 }
