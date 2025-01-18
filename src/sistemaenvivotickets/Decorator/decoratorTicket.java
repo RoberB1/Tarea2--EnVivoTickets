@@ -3,5 +3,13 @@ package sistemaenvivotickets.Decorator;
 import sistemaenvivotickets.Factory.Ticket;
 
 public class decoratorTicket {
-    private Ticket ticket;
+    protected Ticket ticket;
+
+    public decoratorTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
+
+    public void agregarCaracteristica() {
+        ticket.agregarCaracteristica();
+    }
 }
