@@ -1,4 +1,5 @@
 package sistemaenvivotickets;
+import sistemaenvivotickets.Factory.Ticket;
 import java.util.List;
 public class FecadeSystem {
    
@@ -47,4 +48,4 @@ public class FecadeSystem {
         this.usuarios = usuarios;
     }
 }
-}
+

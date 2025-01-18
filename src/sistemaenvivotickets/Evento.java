@@ -5,6 +5,7 @@
 package sistemaenvivotickets;
 
 import java.util.List;
+import sistemaenvivotickets.Observer.Observer;
 
 /**
  *
@@ -12,6 +13,7 @@ import java.util.List;
  */
 public class Evento {
     int idEvento;
+    String nombre;
     String tipo;
     String descripcion;
     List<String> elenco;
@@ -80,6 +82,10 @@ public class Evento {
 
     public void setObservers(List<Observer> observers) {
         this.observers = observers;
+    }
+
+    public String getNombre() {
+        return this.nombre;
     }
     
     

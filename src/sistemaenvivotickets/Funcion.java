@@ -54,6 +54,10 @@ public class Funcion {
     public void setMapaAsientos(Map<String, String> mapaAsientos) {
         this.mapaAsientos = mapaAsientos;
     }
+
+    public String mostrarDisponibilidad() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
     
     
 }
