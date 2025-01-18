@@ -22,6 +22,13 @@ public class Ticket {
         //Codigo
     }
 
+    public Ticket() {
+        this.idTicket = 0;
+        this.estado = "Disponible";
+        this.precio = 0.0;
+        this.Seccion = "Sin sección asignada";
+    }
+
     public Ticket(int idTicket, String estado, Double precio, String Seccion) {
         this.idTicket = idTicket;
         this.estado = estado;
