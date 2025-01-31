@@ -1,12 +1,11 @@
 package sistemaenvivotickets.Decorator;
 
 import sistemaenvivotickets.Factory.Ticket;
-
-public class decoratorTicket extends Ticket {
-    protected Ticket ticket;
+//Refused Bequest
+public class decoratorTicket {
+    private Ticket ticket;
 
     public decoratorTicket(Ticket ticket) {
-        super();
         this.ticket = ticket;
     }
 
