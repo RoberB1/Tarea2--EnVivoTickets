@@ -12,15 +12,12 @@ public class Usuario {
     int idUsuario;
     String nombre;
     String email;
-    
-    public void recibirNotificacion(String msg) {
-        System.out.println(nombre + " ha recibido una notificación: " + msg);
+    public Usuario(String nombre) {
+        this.nombre = nombre;
     }
 
-    public Usuario(int idUsuario, String nombre, String email) {
-        this.idUsuario = idUsuario;
-        this.nombre = nombre;
-        this.email = email;
+    public void recibirNotificacion(String msg) {
+        System.out.println(nombre + " ha recibido una notificación: " + msg);
     }
 
     public int getIdUsuario() {
