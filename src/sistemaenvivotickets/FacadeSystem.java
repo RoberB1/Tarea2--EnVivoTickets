@@ -1,11 +1,11 @@
 package sistemaenvivotickets;
 import sistemaenvivotickets.Factory.Ticket;
 import java.util.List;
-public class FecadeSystem {
+public class FacadeSystem {
    
 
     private List<Evento> eventos;
-    private List<Usuario> usuarios;
+    private List<Usuario> usuarios; //Data Clump
 
    
 
@@ -14,7 +14,7 @@ public class FecadeSystem {
         System.out.println("Disponibilidad para el evento: " + evento.getNombre());
         funcion.mostrarDisponibilidad();
     }
-
+    //Message Chains
     public void reservarTicket(Ticket ticket) {
         if (ticket.getEstado().equals("disponible")) {
             ticket.setEstado("reservado");
