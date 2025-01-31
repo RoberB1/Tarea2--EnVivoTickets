@@ -14,10 +14,9 @@ public class Funcion {
 
     public Funcion(LocalDateTime fecha, Map<String, String> mapaAsientos) {
         this.fechaHora = fecha;
-        this.mapaAsientos = new HashMap<>(mapaAsientos); // Copia para evitar modificaciones externas
+        this.mapaAsientos = new HashMap<>(mapaAsientos); 
     }
 
-    // ✅ Encapsulación del acceso a los asientos
     public boolean estaDisponible(String asiento) {
         return mapaAsientos.containsKey(asiento) && mapaAsientos.get(asiento).equals("disponible");
     }
@@ -31,13 +30,20 @@ public class Funcion {
             mapaAsientos.put(asiento, "reservado");
             System.out.println(asiento + " ha sido reservado.");
             return true;
+    //Long Method: Duplicación de Cadenas Literales 
+    public void reservarAsiento(String asiento) {
+        if (mapaAsientos.containsKey(asiento)) {
+            String asiento1 = mapaAsientos.get(asiento);
+            if(asiento1.equals("disponible")){
+                mapaAsientos.put(asiento,  "reservado");
+                System.out.println(asiento + " ha sido reservado.");
+            }
         } else {
             System.out.println("El asiento no está disponible.");
             return false;
         }
     }
 
-    // ✅ Métodos encapsulados para manejar los asientos
     public void liberarAsiento(String asiento) {
         if (mapaAsientos.containsKey(asiento)) {
             mapaAsientos.put(asiento, "disponible");
@@ -56,7 +62,6 @@ public class Funcion {
         }
     }
 
-    // ✅ Métodos para acceder a la información de los asientos sin exponer la estructura
     public Map<String, String> obtenerCopiaAsientos() {
         return new HashMap<>(mapaAsientos);
     }
@@ -65,7 +70,6 @@ public class Funcion {
         return mapaAsientos.getOrDefault(asiento, "No existe");
     }
 
-    // ✅ Encapsulación del acceso a la fecha y hora
     public LocalDateTime getFechaYHora() {
         return fechaHora;
     }

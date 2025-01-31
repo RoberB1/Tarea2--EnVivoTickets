@@ -1,15 +1,20 @@
 package sistemaenvivotickets;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Soporte {
-    private List<String> incidentes;
     private String equipoEscalado;
+    //Null Pointer Risk
+    private List<String> incidentes = new ArrayList<>();
 
-    public void registrarIncidente(String incidente) {
-        incidentes.add(incidente);
-        System.out.println("Incidente registrado: " + incidente);
+public void registrarIncidente(String incidente) {
+    if (incidente == null || incidente.trim().isEmpty()) {
+        throw new IllegalArgumentException("El incidente no puede ser nulo o vacío.");
     }
+    incidentes.add(incidente);
+    System.out.println("Incidente registrado: " + incidente);
+}
 
     public void escalarIncidente(String incidente) {
         System.out.println("El incidente '" + incidente + "' ha sido escalado al equipo correspondiente.");
