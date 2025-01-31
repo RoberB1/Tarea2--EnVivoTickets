@@ -1,10 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package sistemaenvivotickets;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -12,11 +9,18 @@ import java.util.Map;
  * @author rb122
  */
 public class Funcion {
-    Date fecha;
-    int hora; // Primitive Obsession
-    Map<String,String> mapaAsientos; // Inappropriate Intimacy
-    
-    
+    private LocalDateTime fechaHora;
+    private Map<String, String> mapaAsientos;
+
+    public Funcion(LocalDateTime fecha, Map<String, String> mapaAsientos) {
+        this.fechaHora = fecha;
+        this.mapaAsientos = new HashMap<>(mapaAsientos); 
+    }
+
+    public boolean estaDisponible(String asiento) {
+        return mapaAsientos.containsKey(asiento) && mapaAsientos.get(asiento).equals("disponible");
+    }
+
     public void mostrarDisponibilidad() {
         for (Map.Entry<String, String> entry : mapaAsientos.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
@@ -49,25 +53,28 @@ public class Funcion {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void cancelarReserva(String asiento) {
+        if (mapaAsientos.containsKey(asiento) && mapaAsientos.get(asiento).equals("reservado")) {
+            mapaAsientos.put(asiento, "disponible");
+            System.out.println("La reserva del asiento " + asiento + " ha sido cancelada.");
+        } else {
+            System.out.println("No se puede cancelar la reserva del asiento.");
+        }
     }
 
-    public int getHora() {
-        return hora;
+    public Map<String, String> obtenerCopiaAsientos() {
+        return new HashMap<>(mapaAsientos);
     }
 
-    public void setHora(int hora) {
-        this.hora = hora;
+    public String obtenerEstadoAsiento(String asiento) {
+        return mapaAsientos.getOrDefault(asiento, "No existe");
     }
 
-    public Map<String, String> getMapaAsientos() {
-        return mapaAsientos;
+    public LocalDateTime getFechaYHora() {
+        return fechaHora;
     }
 
-    public void setMapaAsientos(Map<String, String> mapaAsientos) {
-        this.mapaAsientos = mapaAsientos;
+    public void setFechaYHora(LocalDateTime fecha) {
+        this.fechaHora = fecha;
     }
-    
-    
 }
