@@ -21,8 +21,9 @@ public class Ticket {
         if (estaDisponible()) {
             estado = RESERVADO;
         } else {
-            throw new IllegalStateException("El ticket no está disponible para reserva.");
+            throw new IllegalStateException("El ticket no está disponible.");
         }
     }
 }
+
 
