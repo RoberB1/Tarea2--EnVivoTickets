@@ -6,14 +6,14 @@ package sistemaenvivotickets;
 
 import java.util.Date;
 import java.util.Map;
+import java.time.*;
 
 /**
  *
  * @author rb122
  */
 public class Funcion {
-    Date fecha;
-    int hora;
+    LocalDateTime fechaHora;
     Map<String,String> mapaAsientos;
     
     
@@ -32,26 +32,18 @@ public class Funcion {
         }
     }
 
-    public Funcion(Date fecha, int hora, Map<String, String> mapaAsientos) {
-        this.fecha = fecha;
-        this.hora = hora;
+    public Funcion(LocalDateTime Fecha, Map<String, String> mapaAsientos) {
+        this.fechaHora = Fecha;
         this.mapaAsientos = mapaAsientos;
     }
 
-    public Date getFecha() {
-        return fecha;
+
+    public LocalDateTime getFechaYHora() {
+        return fechaHora;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
-    public int getHora() {
-        return hora;
-    }
-
-    public void setHora(int hora) {
-        this.hora = hora;
+    public void setFechaYHora(LocalDateTime fecha) {
+        this.fechaHora = fecha;
     }
 
     public Map<String, String> getMapaAsientos() {
