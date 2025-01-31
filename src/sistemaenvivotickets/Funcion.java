@@ -6,15 +6,15 @@ package sistemaenvivotickets;
 
 import java.util.Date;
 import java.util.Map;
-import java.time.*;
 
 /**
  *
  * @author rb122
  */
 public class Funcion {
-    LocalDateTime fechaHora;
-    Map<String,String> mapaAsientos;
+    Date fecha;
+    int hora; // Primitive Obsession
+    Map<String,String> mapaAsientos; // Inappropriate Intimacy
     
     
     public void mostrarDisponibilidad() {
@@ -22,28 +22,39 @@ public class Funcion {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
     }
-
+    //Long Method: Duplicación de Cadenas Literales 
     public void reservarAsiento(String asiento) {
-        if (mapaAsientos.containsKey(asiento) && mapaAsientos.get(asiento).equals("disponible")) {
-            mapaAsientos.put(asiento, "reservado");
-            System.out.println(asiento + " ha sido reservado.");
+        if (mapaAsientos.containsKey(asiento)) {
+            String asiento1 = mapaAsientos.get(asiento);
+            if(asiento1.equals("disponible")){
+                mapaAsientos.put(asiento,  "reservado");
+                System.out.println(asiento + " ha sido reservado.");
+            }
         } else {
             System.out.println("El asiento no está disponible.");
         }
     }
 
-    public Funcion(LocalDateTime Fecha, Map<String, String> mapaAsientos) {
-        this.fechaHora = Fecha;
+    public Funcion(Date fecha, int hora, Map<String, String> mapaAsientos) {
+        this.fecha = fecha;
+        this.hora = hora;
         this.mapaAsientos = mapaAsientos;
     }
 
-
-    public LocalDateTime getFechaYHora() {
-        return fechaHora;
+    public Date getFecha() {
+        return fecha;
     }
 
-    public void setFechaYHora(LocalDateTime fecha) {
-        this.fechaHora = fecha;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public int getHora() {
+        return hora;
+    }
+
+    public void setHora(int hora) {
+        this.hora = hora;
     }
 
     public Map<String, String> getMapaAsientos() {

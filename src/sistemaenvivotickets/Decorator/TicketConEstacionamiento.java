@@ -1,7 +1,7 @@
 package sistemaenvivotickets.Decorator;
 import sistemaenvivotickets.Factory.Ticket;
 
-public class TicketConEstacionamiento extends decoratorTicket{
+public class TicketConEstacionamiento extends Ticket {
     public TicketConEstacionamiento(Ticket ticket) {
         super(ticket);
     }
