@@ -21,21 +21,25 @@ public class Funcion {
         for (Map.Entry<String, String> entry : mapaAsientos.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
-    }
-    //Long Method: Duplicación de Cadenas Literales 
-    public void reservarAsiento(String asiento) {
-        if (mapaAsientos.containsKey(asiento)) {
-            String asiento1 = mapaAsientos.get(asiento);
-            if(asiento1.equals("disponible")){
-                mapaAsientos.put(asiento,  "reservado");
-                System.out.println(asiento + " ha sido reservado.");
-            }
-        } else {
-            System.out.println("El asiento no está disponible.");
+    }public void reservarAsiento(String asiento) {
+        if (!mapaAsientos.containsKey(asiento)) {
+            System.out.println("El asiento no existe.");
+            return;
         }
-    }
-
-    public Funcion(Date fecha, int hora, Map<String, String> mapaAsientos) {
+        if (estaDisponible(asiento)) {
+                    mapaAsientos.put(asiento, "reservado");
+                    System.out.println(asiento + " ha sido reservado.");
+                } else {
+                    System.out.println("El asiento no está disponible.");
+                }
+            }
+            
+        
+            private boolean estaDisponible(String asiento) {
+                // TODO Auto-generated method stub
+                throw new UnsupportedOperationException("Unimplemented method 'estaDisponible'");
+            }
+            public Funcion(Date fecha, int hora, Map<String, String> mapaAsientos) {
         this.fecha = fecha;
         this.hora = hora;
         this.mapaAsientos = mapaAsientos;
