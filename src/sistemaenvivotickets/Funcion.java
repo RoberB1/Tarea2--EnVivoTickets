@@ -1,43 +1,71 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package sistemaenvivotickets;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.Map;
-import java.time.*;
 
 /**
  *
  * @author rb122
  */
 public class Funcion {
-    LocalDateTime fechaHora;
-    Map<String,String> mapaAsientos;
-    
-    
-    public void mostrarDisponibilidad() {
-        for (Map.Entry<String, String> entry : mapaAsientos.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
-        }
+    private LocalDateTime fechaHora;
+    private Map<String, String> mapaAsientos;
+
+    public Funcion(LocalDateTime fecha, Map<String, String> mapaAsientos) {
+        this.fechaHora = fecha;
+        this.mapaAsientos = new HashMap<>(mapaAsientos); // Copia para evitar modificaciones externas
     }
 
-    public void reservarAsiento(String asiento) {
-        if (mapaAsientos.containsKey(asiento) && mapaAsientos.get(asiento).equals("disponible")) {
+    // ✅ Encapsulación del acceso a los asientos
+    public boolean estaDisponible(String asiento) {
+        return mapaAsientos.containsKey(asiento) && mapaAsientos.get(asiento).equals("disponible");
+    }
+
+    public void mostrarDisponibilidad() {
+        mapaAsientos.forEach((asiento, estado) -> System.out.println(asiento + ": " + estado));
+    }
+
+    public boolean reservarAsiento(String asiento) {
+        if (estaDisponible(asiento)) {
             mapaAsientos.put(asiento, "reservado");
             System.out.println(asiento + " ha sido reservado.");
+            return true;
         } else {
             System.out.println("El asiento no está disponible.");
+            return false;
         }
     }
 
-    public Funcion(LocalDateTime Fecha, Map<String, String> mapaAsientos) {
-        this.fechaHora = Fecha;
-        this.mapaAsientos = mapaAsientos;
+    // ✅ Métodos encapsulados para manejar los asientos
+    public void liberarAsiento(String asiento) {
+        if (mapaAsientos.containsKey(asiento)) {
+            mapaAsientos.put(asiento, "disponible");
+            System.out.println(asiento + " ha sido liberado.");
+        } else {
+            System.out.println("El asiento no existe.");
+        }
     }
 
+    public void cancelarReserva(String asiento) {
+        if (mapaAsientos.containsKey(asiento) && mapaAsientos.get(asiento).equals("reservado")) {
+            mapaAsientos.put(asiento, "disponible");
+            System.out.println("La reserva del asiento " + asiento + " ha sido cancelada.");
+        } else {
+            System.out.println("No se puede cancelar la reserva del asiento.");
+        }
+    }
 
+    // ✅ Métodos para acceder a la información de los asientos sin exponer la estructura
+    public Map<String, String> obtenerCopiaAsientos() {
+        return new HashMap<>(mapaAsientos);
+    }
+
+    public String obtenerEstadoAsiento(String asiento) {
+        return mapaAsientos.getOrDefault(asiento, "No existe");
+    }
+
+    // ✅ Encapsulación del acceso a la fecha y hora
     public LocalDateTime getFechaYHora() {
         return fechaHora;
     }
@@ -45,14 +73,4 @@ public class Funcion {
     public void setFechaYHora(LocalDateTime fecha) {
         this.fechaHora = fecha;
     }
-
-    public Map<String, String> getMapaAsientos() {
-        return mapaAsientos;
-    }
-
-    public void setMapaAsientos(Map<String, String> mapaAsientos) {
-        this.mapaAsientos = mapaAsientos;
-    }
-    
-    
 }
